@@ -1,0 +1,39 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "cc-sync",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-25",
+  "observability": { "enabled": true },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "GITHUB_API_VERSION": "2026-03-10",
+    "NOTION_VERSION": "2026-03-11",
+    "EMBEDDING_MODEL": "@cf/baai/bge-m3",
+    "CHUNK_MAX_CHARS": "1800",
+    "CHUNK_OVERLAP_CHARS": "200",
+    "MAX_SYNC_OBJECTS": "5000",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cc-default-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+    },
+  ],
+  "r2_buckets": [{ "binding": "RAW_BUCKET", "bucket_name": "cc-default-raw" }],
+  "vectorize": [{ "binding": "VECTOR_INDEX", "index_name": "cc-default-vectors", "remote": true }],
+  "ai": { "binding": "AI", "remote": true },
+  "queues": {
+    "producers": [{ "binding": "SYNC_QUEUE", "queue": "cc-default-sync" }],
+    "consumers": [
+      {
+        "queue": "cc-default-sync",
+        "max_batch_size": 10,
+        "max_batch_timeout": 5,
+        "max_retries": 5,
+        "dead_letter_queue": "cc-default-sync-dlq",
+      },
+    ],
+  },
+  "triggers": { "crons": ["*/15 * * * *"] },
+}

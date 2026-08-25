@@ -1,0 +1,25 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "cc-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-25",
+  "observability": { "enabled": true },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "ALLOW_DEV_AUTH": "false",
+    "RATE_LIMIT_PER_MINUTE": "120",
+    "MAX_PAGE_SIZE": "100",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cc-default-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "../../infrastructure/migrations",
+    },
+  ],
+  "r2_buckets": [{ "binding": "RAW_BUCKET", "bucket_name": "cc-default-raw" }],
+  "queues": {
+    "producers": [{ "binding": "SYNC_QUEUE", "queue": "cc-default-sync" }],
+  },
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "cc-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-25",
+  "observability": { "enabled": true },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "ALLOW_DEV_AUTH": "false",
+    "EMBEDDING_MODEL": "@cf/baai/bge-m3",
+    "MAX_MCP_RESULTS": "20",
+    "MAX_CONTEXT_CHARS": "30000",
+    "MCP_ALLOWED_HOSTNAMES": "localhost,*.workers.dev,cc-mcp.example.com",
+    "MCP_ALLOWED_ORIGINS": "localhost,claude.ai",
+    "OAUTH_ISSUER": "https://auth.example.com",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cc-default-db",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+    },
+  ],
+  "r2_buckets": [{ "binding": "RAW_BUCKET", "bucket_name": "cc-default-raw" }],
+  "vectorize": [{ "binding": "VECTOR_INDEX", "index_name": "cc-default-vectors", "remote": true }],
+  "ai": { "binding": "AI", "remote": true },
+}

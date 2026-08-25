@@ -1,0 +1,3 @@
+id,title,description,project,assignee,status,priority,created_at,updated_at,url
+TASK-142,暗証番号再設定フロー,連続失敗時のロックと監査イベントを追加する,storage,aiko@example.com,Done,High,2026-06-12T01:00:00Z,2026-06-18T09:30:00Z,https://www.notion.so/demo/7f457be0639749a682f26ce14a7eaaad
+TASK-184,請求処理の再試行,外部請求API障害時に指数バックオフを適用する,billing,ken@example.com,Done,High,2026-07-04T03:15:00Z,2026-07-08T07:20:00Z,https://www.notion.so/demo/06d6b9418c7f477da86fc3ddfe9c1801

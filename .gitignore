@@ -1,0 +1,21 @@
+node_modules/
+.turbo/
+.nuxt/
+.output/
+dist/
+coverage/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+!.dev.vars.example
+*.log
+.DS_Store
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+infrastructure/generated/
+
+# 社内要件定義書（原文）はリポジトリに含めない
+*.docx

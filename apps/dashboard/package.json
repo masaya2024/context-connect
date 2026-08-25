@@ -1,0 +1,29 @@
+{
+  "name": "@context-connect/dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 3000",
+    "lint": "eslint \"app/**/*.ts\" nuxt.config.ts",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "latest",
+    "nuxt": "latest",
+    "tailwindcss": "latest",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "latest",
+    "@types/node": "latest",
+    "@vue/test-utils": "latest",
+    "vue-tsc": "latest",
+    "vitest": "latest"
+  }
+}
